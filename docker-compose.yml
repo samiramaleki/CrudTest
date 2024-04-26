@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+    mc2.crudtest.presentation.server:
+        image: mc2crudtestpresentationserver
+        environment:
+        - ASPNETCORE_URLS=https://+
+        container_name: M2cApi
+        build:
+          context: .
+          dockerfile: Mc2.CrudTest.Presentation/Dockerfile
+        ports:
+          - "5005:443"
+        depends_on:
+          - db
+    db:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        container_name: maleki-sql
+        user: root
+        environment:
+          SA_PASSWORD: "D9OUXpYkiWeOAZ9m21HU"
+          ACCEPT_EULA: "Y"
+        volumes:
+        - D:\Mc2.CrudTestCrude\Docker\mssql2019:/var/opt/mssql/data
+        ports:
+         - "5003:1433"
+        # network_mode: host
