@@ -1,8 +1,10 @@
 ﻿using Mc2.CrudTest.Application.CQRS.DependentCreditNotes.Create;
 using Mc2.CrudTest.Application.CQRS.DependentCreditNotes.Delete;
+using Mc2.CrudTest.Application.CQRS.DependentCreditNotes.GetById;
 using Mc2.CrudTest.Application.CQRS.DependentCreditNotes.Update;
 using Mc2.CrudTest.Application.CQRS.IndependentCreditNotes.Create;
 using Mc2.CrudTest.Application.CQRS.IndependentCreditNotes.Delete;
+using Mc2.CrudTest.Application.CQRS.IndependentCreditNotes.GetById;
 using Mc2.CrudTest.Application.CQRS.IndependentCreditNotes.Update;
 using Mc2.CrudTest.Application.CQRS.Invoices.Create;
 using Mc2.CrudTest.Application.CQRS.Invoices.Delete;
@@ -114,5 +116,20 @@ namespace Mc2.CrudTest.Presentation.Controllers
         {
             return Ok(await _mediator.Send(new DeleteIndependentCreditNoteCommand(id)));
         }
+
+        [HttpGet]
+        [Route("dependent-creditNote-by-{id}")]
+        public async Task<ActionResult<GetDependentCreditNoteByIdQueryResult>> GetDependentCreditNoteById(Guid id)
+        {
+            return Ok(await _mediator.Send(new GetDependentCreditNoteByIdQuery(id)));
+        }
+
+        [HttpGet]
+        [Route("independent-creditNote-by-{id}")]
+        public async Task<ActionResult<GetIndependentCreditNoteByIdQueryResult>> GetInDependentCreditNoteById(Guid id)
+        {
+            return Ok(await _mediator.Send(new GetIndependentCreditNoteByIdQuery(id)));
+        }
     }
 }
+

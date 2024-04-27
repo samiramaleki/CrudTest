@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CQRS\DependentCreditNotes\GetById\" />
-    <Folder Include="CQRS\IndependentCreditNotes\GetById\" />
     <Folder Include="CQRS\IndependentCreditNotes\List\" />
   </ItemGroup>
 
