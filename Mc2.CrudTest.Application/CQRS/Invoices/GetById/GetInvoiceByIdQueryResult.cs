@@ -4,7 +4,7 @@ namespace Mc2.CrudTest.Application.CQRS.Invoices.GetById
 {
     public class GetInvoiceByIdQueryResult
     {
-        public GetInvoiceByIdQueryResult(int invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
+        public GetInvoiceByIdQueryResult(long invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
         {
             InvoiceNumber = invoiceNumber;
             ExternalInvoiceNumber = externalInvoiceNumber;
@@ -12,7 +12,7 @@ namespace Mc2.CrudTest.Application.CQRS.Invoices.GetById
             TotalAmount = totalAmount;
         }
 
-        public int InvoiceNumber { get; private set; }
+        public long InvoiceNumber { get; private set; }
         public string ExternalInvoiceNumber { get; private set; }
         public Status InvoiceStatus { get; private set; }
         public decimal TotalAmount { get; private set; }

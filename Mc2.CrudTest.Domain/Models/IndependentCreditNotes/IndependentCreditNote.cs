@@ -11,12 +11,12 @@ namespace Mc2.CrudTest.Domain.Models.IndependentCreditNotes
         }
 
         public Guid Id { get; set; }
-        public int CreditNumber { get; private set; }
+        public long CreditNumber { get; private set; }
         public string ExternalCreditNumber { get; private set; }
         public Status InvoiceStatus { get; private set; }
         public decimal TotalAmount { get; private set; }
 
-        private IndependentCreditNote(int creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
+        private IndependentCreditNote(long creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
         {
             Validation(creditNumber, externalCreditNumber, totalAmount);
 
@@ -27,10 +27,10 @@ namespace Mc2.CrudTest.Domain.Models.IndependentCreditNotes
             TotalAmount = totalAmount;
         }
 
-        public static IndependentCreditNote Create(int creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
+        public static IndependentCreditNote Create(long creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
          => new(creditNumber, externalCreditNumber, invoiceStatus, totalAmount);
 
-        public void Update(int creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
+        public void Update(long creditNumber, string externalCreditNumber, Status invoiceStatus, decimal totalAmount)
         {
             Validation(creditNumber, externalCreditNumber, totalAmount);
 
@@ -41,7 +41,7 @@ namespace Mc2.CrudTest.Domain.Models.IndependentCreditNotes
             InvoiceStatus = invoiceStatus;
         }
 
-        private void Validation(int creditNumber, string externalCreditNumber, decimal totalAmount)
+        private void Validation(long creditNumber, string externalCreditNumber, decimal totalAmount)
         {
             if (creditNumber == 0)
                 throw new Exception("CreditNumber can’t be empty.");

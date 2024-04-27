@@ -8,11 +8,11 @@ namespace Mc2.CrudTest.Domain.Dtos.Invoices
         public Guid? InvoiceId { get; set; }
         public Guid? DependentCreditNoteId { get; set; }
         public Guid IndependentCreditNoteId { get; set; }
-        public int InvoiceNumber { get; set; }
+        public long InvoiceNumber { get; set; }
         public string ExternalInvoiceNumber { get; set; }
         public decimal InvoiceTotalAmount { get; set; }
         public string InvoiceStatus { get; set; }
-        public int CreditNumber { get; set; }
+        public long CreditNumber { get; set; }
         public string ExternalCreditNumber { get; set; }
         public string CreditStatus { get; set; }
         public decimal CreditTotalAmount { get; set; }

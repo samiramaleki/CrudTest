@@ -10,9 +10,9 @@ namespace Mc2.CrudTest.Domain.Dtos
     public class IndependentCreditNoteInPutDto
     {
         public Guid? IndependentCreditNoteId { get; set; }
-        public int CreditNumber { get; private set; }
-        public string ExternalCreditNumber { get; private set; }
-        public Status CreditStatus { get; private set; }
-        public decimal TotalAmount { get; private set; }
+        public long CreditNumber { get; set; }
+        public string ExternalCreditNumber { get; set; }
+        public Status CreditStatus { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }

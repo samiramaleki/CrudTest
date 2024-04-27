@@ -1,6 +1,5 @@
 ﻿using Mc2.CrudTest.Domain.Enums;
 using Mc2.CrudTest.Domain.Models.Invoices;
-using ServiceResult;
 using System;
 
 namespace Mc2.CrudTest.Domain.Models.DependentCreditNotes
@@ -13,14 +12,14 @@ namespace Mc2.CrudTest.Domain.Models.DependentCreditNotes
         }
 
         public Guid Id { get; set; }
-        public int CreditNumber { get; private set; }
+        public long CreditNumber { get; private set; }
         public string ExternalCreditNumber { get; private set; }
         public Status CreditStatus { get; private set; }
         public decimal TotalAmount { get; private set; }
         public Guid InvoiceId { get; private set; }
         public Invoice Invoice { get; private set; }
 
-        private DependentCreditNote(int creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
+        private DependentCreditNote(long creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
         {
             Validation(creditNumber, externalCreditNumber, totalAmount);
 
@@ -32,10 +31,10 @@ namespace Mc2.CrudTest.Domain.Models.DependentCreditNotes
             Invoice = invoice;
         }
 
-        public static DependentCreditNote Create(int creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
+        public static DependentCreditNote Create(long creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
             => new (creditNumber, externalCreditNumber, creditStatus, totalAmount, invoice);
 
-        public void Update(int creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
+        public void Update(long creditNumber, string externalCreditNumber, Status creditStatus, decimal totalAmount, Invoice invoice)
         {
             Validation(creditNumber, externalCreditNumber, totalAmount);
 
@@ -46,7 +45,7 @@ namespace Mc2.CrudTest.Domain.Models.DependentCreditNotes
             Invoice= invoice;
         }
 
-        private void Validation(int creditNumber, string externalCreditNumber, decimal totalAmount)
+        private void Validation(long creditNumber, string externalCreditNumber, decimal totalAmount)
         {
             if (creditNumber == 0)
                 throw new Exception("CreditNumber can’t be empty.");

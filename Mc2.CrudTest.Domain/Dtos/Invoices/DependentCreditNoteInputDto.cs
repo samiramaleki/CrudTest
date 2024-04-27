@@ -6,7 +6,7 @@ namespace Mc2.CrudTest.Domain.Dtos.Invoices
     public class DependentCreditNoteInputDto
     {
         public Guid? Id { get; set; }
-        public int CreditNumber { get;  set; }
+        public long CreditNumber { get;  set; }
         public string ExternalCreditNumber { get;  set; }
         public Status CreditStatus { get;  set; }
         public decimal TotalAmount { get;  set; }

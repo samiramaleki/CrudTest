@@ -9,6 +9,6 @@ namespace Mc2.CrudTest.Domain.Dtos.Invoices
     public class GetInvoiceSimple
     {
         public Guid Id { get; set; }
-        public int InvoiceNumber { get; set; }
+        public long InvoiceNumber { get; set; }
     }
 }

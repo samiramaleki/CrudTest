@@ -4,7 +4,7 @@ namespace Mc2.CrudTest.Domain.UnitTest.Domain.Fixtures
 {
     public class InvoiceFixture : IDisposable
     {
-        public int InvoiceNumber { get;  set; }
+        public long InvoiceNumber { get;  set; }
         public string ExternalInvoiceNumber { get;  set; }= string.Empty;
         public Status InvoiceStatus { get;  set; }
         public decimal TotalAmount { get;  set; }

@@ -14,13 +14,13 @@ namespace Mc2.CrudTest.Domain.Models.Invoices
         }
 
         public Guid Id { get; set; }
-        public int InvoiceNumber { get; private set; }
+        public long InvoiceNumber { get; private set; }
         public string ExternalInvoiceNumber { get; private set; }
         public Status InvoiceStatus { get; private set; }
         public decimal TotalAmount { get; private set; }
         public IList<DependentCreditNote> DependentCreditNotes { get; set; }
 
-        private Invoice(int invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
+        private Invoice(long invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
         {
             Validation(invoiceNumber, externalInvoiceNumber, totalAmount);
 
@@ -31,7 +31,7 @@ namespace Mc2.CrudTest.Domain.Models.Invoices
             TotalAmount = totalAmount;
         }
 
-        private void Validation(int invoiceNumber, string externalInvoiceNumber, decimal totalAmount)
+        private void Validation(long invoiceNumber, string externalInvoiceNumber, decimal totalAmount)
         {
             if (invoiceNumber == 0)
                 throw new Exception("InvoiceNumber can’t be empty.");
@@ -45,10 +45,10 @@ namespace Mc2.CrudTest.Domain.Models.Invoices
                 throw new Exception("TotalAmount should be greater than zero.");
         }
 
-        public static Invoice Create(int invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
+        public static Invoice Create(long invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
          => new(invoiceNumber, externalInvoiceNumber, invoiceStatus, totalAmount);
 
-        public void Update(int invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
+        public void Update(long invoiceNumber, string externalInvoiceNumber, Status invoiceStatus, decimal totalAmount)
         {
             Validation(invoiceNumber, externalInvoiceNumber, totalAmount);
 

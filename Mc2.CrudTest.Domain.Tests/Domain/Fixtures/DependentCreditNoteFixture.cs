@@ -5,7 +5,7 @@ namespace Mc2.CrudTest.Domain.UnitTest.Domain.Fixtures
 {
     public class DependentCreditNoteFixture: IDisposable
     {
-        public int CreditNumber { get;  set; }
+        public long CreditNumber { get;  set; }
         public string ExternalCreditNumber { get;  set; }= string.Empty;
         public Status CreditStatus { get;  set; }
         public decimal TotalAmount { get;  set; }

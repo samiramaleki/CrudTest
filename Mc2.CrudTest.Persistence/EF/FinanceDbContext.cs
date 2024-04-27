@@ -30,7 +30,7 @@ namespace Mc2.CrudTest.Persistence.EF
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-                optionsBuilder.UseSqlServer("Server=192.168.43.206,5003;Database=Mc2CrudTestD1;uid=sa;pwd=D9OUXpYkiWeOAZ9m21HU;");
+                optionsBuilder.UseSqlServer("Server=192.168.1.250,5003;Database=Mc2CrudTestD1;uid=sa;pwd=D9OUXpYkiWeOAZ9m21HU;");
         }
     }
 }

@@ -21,7 +21,7 @@ services:
           SA_PASSWORD: "D9OUXpYkiWeOAZ9m21HU"
           ACCEPT_EULA: "Y"
         volumes:
-        - D:\Mc2.CrudTestCrude\Docker\mssql2019:/var/opt/mssql/data
+        - C:\Mc2.CrudTestCrude\Docker\mssql2019:/var/opt/mssql/data
         ports:
          - "5003:1433"
         # network_mode: host
